@@ -18,15 +18,17 @@ export default function Results({ data }) {
 				</thead>
 				<tbody>
 					{/* Map the calculated results and display each year in a row */}
-					{results.map((data) => (
-						<tr key={data.year}>
-							<td>{data.year}</td>
-							<td>{formatter.format(data.valueEndOfYear)}</td>
-							<td>{formatter.format(data.interest)}</td>
-							<td>{formatter.format(data.totalInterest)}</td>
-							<td>{formatter.format(data.valueEndOfYear - data.totalInterest)}</td>
-						</tr>
-					))}
+					{results.map((data) => {
+						return (
+							<tr key={data.year}>
+								<td>{data.year}</td> 
+								<td>{formatter.format(data.valueEndOfYear)}</td>
+								<td>{formatter.format(data.interest)}</td>
+								<td>{formatter.format(data.totalInterest)}</td>
+								<td>{formatter.format(data.valueEndOfYear - data.totalInterest)}</td>
+							</tr> 
+						);
+					})}
 				</tbody>
 			</table>
 		</section>

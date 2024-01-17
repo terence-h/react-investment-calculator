@@ -11,6 +11,8 @@ function App() {
 		duration: 0,
 	});
 
+	const isValidInput = parameters.duration >= 1;
+
 	function OnValueChange(newValue, index) {
 		setParameters(prevParameters => {
 			return {
@@ -26,7 +28,7 @@ function App() {
 		<>
 			<Header />
 			<Inputs values={parameters} onInputChange={OnValueChange} />
-			<Results data={parameters} />
+			{isValidInput ? <Results data={parameters} /> : <p className="center">Please enter a valid duration greater or equals to 1</p>}
 		</>
 	);
 }
